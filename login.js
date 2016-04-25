@@ -1,4 +1,5 @@
-    let logins = [["Arie", "123aA"], ["Janneke", "May1985"], ["Merkel", "Cat_2016"]];
+    let fakeDb = [["Arie", "123aA"], ["Janneke", "May1985"], ["Merkel", "Cat_2016"]];
+
 
     function validatePassword (value) {
         //(password should have minimum 5 chars, of which minimum 1 uppercase, 1 lowercase, 1 number)
@@ -14,22 +15,23 @@
 
     function checkInput(event){
         event.preventDefault();
-        // alert("The form was submitted");
-        let name = document.getElementById("name").value;
+        name = document.getElementById("name").value;
         let password = document.getElementById("password").value;
         let valid = false;
-        console.log(name + "," + password);
 
-        logins.map (function (key) {
-            console.log ("the key is: " + key);
+        fakeDb.map (function (key) {
             if (name === key[0] && password === key[1]) {
                 valid = true;
-                return(console.log("valid. Welcome " + name));
-                window.location.assign("file:///home/tadah/Documenten/Portfolio/user%20log-in/welcome.html")
+                return(window.open("welcome.html", "_self"));
+                console.log("Valid. Welcome " + name);
             }
         });
 
         (!valid) ? console.log("the combination is not right. Try again.") : ""
+    }
+
+    function welcomeName() {
+      $(".addUserName").append(name);
     }
 
     jQuery(document).ready(function(){
