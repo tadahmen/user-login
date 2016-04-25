@@ -31,7 +31,7 @@
     }
 
     function welcomeName() {
-      $("#welcome").append(name);
+      $(".addUserName").append(name);
     }
 
     jQuery(document).ready(function(){
