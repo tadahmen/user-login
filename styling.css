@@ -73,6 +73,11 @@ input {
   box-shadow: 1px 1px 20px #4CAF50;
 }
 
+#login-comment {
+  color: red;
+  text-shadow: 1px 1px 20px #333;
+}
+
 button {
   margin-top: 10px;
   background-color: #4CAF50;

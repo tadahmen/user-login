@@ -38,7 +38,8 @@
                       onblur="validatePassword(value)"
                       placeholder = "type your password"
                       pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{5,}$"
-                      required> <br/>
+                      required> <br/> <!--password should have minimum 5 chars, of which minimum 1 uppercase, 1 lowercase, 1 number -->
+              <p id="login-comment"></p>
               <button type="submit"> submit </button>
           </from>
         </div>
