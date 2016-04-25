@@ -1,12 +1,12 @@
-    let logins = [["arie", "12345aA!"]];
+    let logins = [["Arie", "123aA"], ["Janneke", "May1985"], ["Merkel", "Cat_2016"]];
 
     function validatePassword (value) {
-        console.log(value);
-        let requirements = RegExp("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$");
-        <!--  other possibility, (works wiith negations), only demands 5 chars, min 1 upper, 1 lower, 1 number: "^.{0,4}$|^[^A-Z]*$|^[^a-z]*$|^[^0-9]*$" -->
+        //(password should have minimum 5 chars, of which minimum 1 uppercase, 1 lowercase, 1 number)
+        let requirements = RegExp("^.{0,4}$|^[^A-Z]*$|^[^a-z]*$|^[^0-9]*$");
 
-        if (!requirements.test(value)) {
-            console.log("Not a valid password. It should be at least 8 chracters, and contain at least a lowercase letter, an uppercase letter, a number and a special character")
+        if (requirements.test(value)) {
+            document.getElementById("login-comment").innerHTML =
+            "Not a valid password.\n It should be at least 5 chracters, and contain at least:\n a lowercase letter, an uppercase letter, and a number"
         } else{
             console.log("password valid")
         }
@@ -25,6 +25,7 @@
             if (name === key[0] && password === key[1]) {
                 valid = true;
                 return(console.log("valid. Welcome " + name));
+                window.location.assign("file:///home/tadah/Documenten/Portfolio/user%20log-in/welcome.html")
             }
         });
 
