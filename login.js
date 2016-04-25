@@ -7,9 +7,9 @@
 
         if (requirements.test(value)) {
             document.getElementById("login-comment").innerHTML =
-            "Not a valid password.\n It should be at least 5 chracters, and contain at least:\n a lowercase letter, an uppercase letter, and a number"
+            "Not a valid password. It should be at least 5 chracters, and contain at least: a lowercase letter, an uppercase letter, and a number"
         } else{
-            console.log("password valid")
+            document.getElementById("login-comment").innerHTML = ""
         }
     }
 
@@ -27,7 +27,7 @@
             }
         });
 
-        (!valid) ? console.log("the combination is not right. Try again.") : ""
+        (!valid) ? document.getElementById("login-comment").innerHTML ="The combination is not right. Try again." : ""
     }
 
     function welcomeName() {
