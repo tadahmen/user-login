@@ -1,8 +1,5 @@
     let fakeDb = [["Arie", "123aA"], ["Janneke", "May1985"], ["Merkel", "Cat_2016"]];
 
-    welcomeName(name) {
-
-    }
 
     function validatePassword (value) {
         //(password should have minimum 5 chars, of which minimum 1 uppercase, 1 lowercase, 1 number)
@@ -31,6 +28,10 @@
         });
 
         (!valid) ? console.log("the combination is not right. Try again.") : ""
+    }
+
+    function welcomeName() {
+      $("#welcome").append(name);
     }
 
     jQuery(document).ready(function(){
