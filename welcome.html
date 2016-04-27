@@ -9,14 +9,19 @@
       <script src="login.js"></script>
     </head>
 
-    <body onpageshow="onLoad()"
+    <body onpageshow="onLoad()">
         <div class="nav-bar">
             <ul class="topnav">
             <li><a class="active" href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li class="right"><a class= "logout" href="#logout"> logout </a></li>
-            <li class="right"><a class= "addUserName" href="#userPage">User: </a></li>
+            <span class = "hideOnLogin">
+                <li class="right"><a class= "login" href="index.html"> login </a></li>
+            </span>
+            <span class= "showOnLogin">
+                <li class="right"><a class= "logout" href="welcome.html" onclick = "logout()"> logout </a></li>
+                <li class="right"><a class= "addUserName" href="#userPage">User: </a></li>
+            </span>
             </ul>
         </div>
 

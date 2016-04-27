@@ -1,5 +1,9 @@
     let fakeDb = [["Arie", "123aA"], ["Janneke", "May1985"], ["Merkel", "Cat_2016"]];
 
+    function setCookie () {
+        document.cookie = "loggedIn=" //this sets loggedIn to "", which equals false.
+    }
+
     function validatePassword (value) {
         //(password should have minimum 5 chars, of which minimum 1 uppercase, 1 lowercase, 1 number)
         let requirements = RegExp("^.{0,4}$|^[^A-Z]*$|^[^a-z]*$|^[^0-9]*$");
@@ -21,9 +25,8 @@
         fakeDb.map (function (key) {
             if (name === key[0] && password === key[1]) {
                 valid = true;
-                document.cookie = "loggedIn = true";
-                return(window.open("welcome.html", "_self"));
-                console.log("Valid. Welcome " + name);
+                document.cookie = "loggedIn=true";
+                return(window.open("welcome.html", "_self"))
             }
         });
 
@@ -34,10 +37,38 @@
       $(".addUserName").append(name);
     }
 
+    function checkLogin () {
+        i=0;
+        arrayOfCookies = document.cookie.split(';');
+        nrOfCookies = arrayOfCookies.length;
+        console.log("cookiesArray: " + arrayOfCookies);
+        for (i = 0; i < nrOfCookies; i++) {
+            console.log("cookie " + i + ": " + arrayOfCookies[i] + " datatype: " + typeof(arrayOfCookies[i]) + "length: " + arrayOfCookies[i].length);
+            if (arrayOfCookies[i] === " loggedIn=true" || arrayOfCookies[i] === "loggedIn=true") {
+              console.log("returns true");
+              return true;
+            }
+        }
+        console.log("returns false");
+        return false;
+    }
+
     function onLoad() {
-      welcomeName();
-      let cookieInfo = document.cookie;
-      console.log(cookieInfo);
+        loggedIn = checkLogin();
+        console.log("loggedIn is: " + loggedIn);
+        if (loggedIn) {
+            console.log("login ok");
+            welcomeName();
+            $('.showOnLogin').show();
+            $('.hideOnLogin').hide();
+        } else {
+            $('.showOnLogin').hide();
+            $('.hideOnLogin').show();
+        }
+    }
+
+    function logout() {
+      document.cookie = "loggedIn=false"
     }
 
     jQuery(document).ready(function(){

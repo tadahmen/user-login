@@ -9,13 +9,13 @@
       <script src="login.js"></script>
     </head>
 
-    <body>
+    <body onpageshow = "setCookie()">
         <div class="nav-bar">
             <ul class="topnav">
             <li><a href="welcome.html">Home</a></li>
             <li><a href="welcome.html#about">About</a></li>
             <li><a href="welcome.html#contact">Contact</a></li>
-            <li class="right"><a class="active" href="login-form.html">login</a></li>
+            <li class="right"><a class="active" href="index.html">login</a></li>
             </ul>
         </div>
 
@@ -23,14 +23,14 @@
           <h1> Login </h1>
 
           <form onsubmit = "checkInput(event)"> <!--action="form-handler.html" method = "GET"-->
-              <span class="inputLabel"> login name: </span>
+              <p class="inputLabel"> login name: </p>
                   <input id = "name"
                       name = "name"
                       type="text"
                       placeholder = "type your username"
                       required
                       autofocus> <br/>
-              <span class="inputLabel"> password: </span>
+              <p class="inputLabel"> password: </p>
                   <input id = "password"
                       name = "password"
                       ref = "password"
