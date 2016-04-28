@@ -9,7 +9,6 @@ body {
 
 ul.topnav {
   list-style-type: none;
-  /*left: 0px;*/
   top: 0px;
   left: 0px;
   right: 0px;
@@ -90,7 +89,9 @@ button {
 @media screen and (max-width: 600px){
   ul.topnav li.right,
   ul.topnav li {float: none;}
-  .content {
-    margin-top: 180px;
-  }
+  .content {margin-top: 215px;}
+  h1 {display: block; text-align: center;}
+  .inputLabel {display: block; text-align: center;}
+  input {display: block; margin:auto;}
+  button {display: block; margin:auto;}
 }
