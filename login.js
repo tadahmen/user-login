@@ -44,7 +44,7 @@
         if(typeof(Storage) !== "undefined") {
             console.log ("using session storage");
             if (sessionStorage.loginStatus === "logged in") {
-                console.log("sessionStorage.loginStatus is " + sessionStorage.loginSatus);
+                console.log("sessionStorage.loginStatus is " + sessionStorage.loginStatus);
                 return true
             } else {
                 return false
