@@ -25,6 +25,9 @@
         fakeDb.map (function (key) {
             if (name === key[0] && password === key[1]) {
                 valid = true;
+                if (typeof(Storage) !== "undefined") {
+                    sessionStorage.loginStatus = "logged in"
+                }
                 document.cookie = "loggedIn=true";
                 return(window.open("welcome.html", "_self"))
             }
@@ -38,19 +41,31 @@
     }
 
     function checkLogin () {
-        i=0;
-        arrayOfCookies = document.cookie.split(';');
-        nrOfCookies = arrayOfCookies.length;
-        console.log("cookiesArray: " + arrayOfCookies);
-        for (i = 0; i < nrOfCookies; i++) {
-            console.log("cookie " + i + ": " + arrayOfCookies[i] + " datatype: " + typeof(arrayOfCookies[i]) + "length: " + arrayOfCookies[i].length);
-            if (arrayOfCookies[i] === " loggedIn=true" || arrayOfCookies[i] === "loggedIn=true") {
-              console.log("returns true");
-              return true;
+        if(typeof(Storage) !== "undefined") {
+            console.log ("using session storage");
+            if (sessionStorage.loginStatus === "logged in") {
+                console.log("sessionStorage.loginStatus is " + sessionStorage.loginSatus);
+                return true
+            } else {
+                return false
             }
-        }
-        console.log("returns false");
-        return false;
+
+        } else {
+            console.log ("using cookie info");
+            i=0;
+            arrayOfCookies = document.cookie.split(';');
+            nrOfCookies = arrayOfCookies.length;
+            console.log("cookiesArray: " + arrayOfCookies);
+            for (i = 0; i < nrOfCookies; i++) {
+                console.log("cookie " + i + ": " + arrayOfCookies[i] + " datatype: " + typeof(arrayOfCookies[i]) + "length: " + arrayOfCookies[i].length);
+                if (arrayOfCookies[i] === " loggedIn=true" || arrayOfCookies[i] === "loggedIn=true") {
+                  console.log("returns true");
+                  return true;
+                }
+            }
+            console.log("returns false");
+            return false;
+          }
     }
 
     function onLoad() {
@@ -68,7 +83,10 @@
     }
 
     function logout() {
-      document.cookie = "loggedIn=false"
+      document.cookie = "loggedIn=false";
+      if(typeof(Storage) !== "undefined") {
+          sessionStorage.loginStatus = "logged out"
+      }
     }
 
     jQuery(document).ready(function(){
