@@ -1,5 +1,5 @@
 # ProjectName
-Simple login page.  It can be visited on: http://miner-cinderalla-71706.bitballoon.com/
+Simple login page.  It can be visited on: http://user-login.bitballoon.com/
 To login            username: Janneke
                     password: May1985
 
