@@ -1,7 +1,9 @@
 # ProjectName
 Simple login page.  It can be visited on: http://user-login.bitballoon.com/
-To login            username: Janneke
-                    password: May1985
+
+You can login with:          
+username: Janneke
+password: May1985
 
 I made an html form with input fields for username and for password,
 both with placeholder text describing what should be in the field.
