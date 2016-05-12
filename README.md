@@ -1,34 +1,38 @@
-# ProjectName
-Simple login page.  It can be visited on: http://miner-cinderalla-71706.bitballoon.com/
-To login            username: Janneke
-                    password: May1985
+User-Login page
 
-the process of making it
-I made an html form with input fields for username and for password,
-both with placeholder text describing what should be in the field.
-I gave both fields the attribute 'required', so you cannot submit when a field is
-left empty.
+Simple login page.  It can be visited on: http://user-login.bitballoon.com/
+
+You can login with:          
+>username: Janneke
+
+>password: May1985
+
+Explanation how I made it:
+
 I used autofocus on the name field, so the user can start typing right away.
-The input element for the password I gave the type 'password' so the input is hidden,
-and I gave it a 'pattern' attribute with a regular expression to test the password,
-so that you cannot submit when the password doesn't meet the password-requirements of
-a minimum of 5 characters (and I made up some extra requirements just for fun).
+The input field for the password I gave a 'pattern' attribute with a regular expression,
+that allows you to submit only when the password meets the following password-requirements:
+>a minimum of 5 characters, including at least 1 lower-case and 1 upper-case letter, and 1 number.
 
-I also added an event to the input element for the password: onblur a js function
-is called so that the password is also validated when the user exits the
-password field. This function also tests the password against a regex,
-and I used innerhtml to display a message when it's an invalid password.
+(checking for this is not usual for a login form, but I did this for practicing purposes)
+
+On blur a function is called so that the password is validated when the user exits the
+password field. This function also tests the password against a regex (It checks for the
+same requirements as mentioned above, but I used another regex for it, to practice a little).
+When the password is invalid, a message appears (by using innerHTML).
 
 When the user pushes the submit button, and both fields have a valid input,
 a function is called to test if the combination of username and password exists
-in the database. I used an array with username-password combinations as a
-fake database. The pairs are checked one by one, using 'map'.
-When a match is found, a new window opens welcoming the user with their login name.
-And in the navigation bar 'login' changes into 'logout' by hiding the one and showing the other,
-and the username appears (using innerhtml).
+in the database. (I used an array with username-password combinations as a
+fake database).
+The pairs are checked one by one, using 'map'. When a match is found, a new window opens
+welcoming the user with their login name. And in the navigation bar 'login' changes into 'logout'
+by hiding the one and showing the other, and the username appears in the navigation bar (using innerhtml).
+When you're not logged in, you can also visit the welcome page, but it is not personalized then.
+When you log out, everything changes back again to the unpersonalized state before login.
 
-I used the following sources:
-http://regexone.com/ to check for the regex for validating the password
+I used the following sources for information:
+http://regexone.com/ to check for the regex syntax.
 http://www.w3schools.com  to find information for form input, jQuery, innerhtml,
                           css, and responsive navigation bar,
                           and for how to use sessionStorage and cookies (for remembering the login status)
